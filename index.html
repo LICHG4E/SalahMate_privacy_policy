@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- ============================================
+       SalahMate — Official Homepage
+       All-in-one Islamic Companion App
+       ============================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SalahMate — Your All-in-One Islamic Companion App</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="SalahMate is a lightweight, distraction-free Islamic companion app featuring Quran reading, multiple recitations, Tafsir, prayer times, Qibla direction, daily Adhkar, and offline support." />
+  <meta name="keywords" content="SalahMate, Quran app, prayer times, Islamic app, Qibla, Adhkar, Tafsir, Muslim app, Salah, Android" />
+  <meta name="author" content="GroveReaper" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#121212" />
+
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="SalahMate — Your All-in-One Islamic Companion App" />
+  <meta property="og:description" content="Quran, Prayer Times, Qibla, Adhkar & more — beautifully simple, distraction-free, and built for focus." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jesser.me/SalahMate_privacy_policy/" />
+  <meta property="og:image" content="images/salahMate.png" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SalahMate — Your All-in-One Islamic Companion App" />
+  <meta name="twitter:description" content="Quran, Prayer Times, Qibla, Adhkar & more — beautifully simple." />
+  <meta name="twitter:image" content="images/salahMate.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/salahMate.png" type="image/png" />
+  <link rel="apple-touch-icon" href="images/salahMate.png" />
+
+  <!-- Google Fonts — Inter for clean modern typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==============================================
+       CSS RESET & BASE STYLES
+       ============================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #121212;
+      color: #FFFFFF;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    /* ==============================================
+       CSS CUSTOM PROPERTIES
+       ============================================== */
+    :root {
+      --primary: #4285F4;
+      --primary-hover: #1A73E8;
+      --secondary: #7BAAF7;
+      --secondary-hover: #5B98F3;
+      --error: #EF5350;
+      --error-hover: #E53935;
+      --surface: #202124;
+      --background: #121212;
+      --text-on-primary: #FFFFFF;
+      --text-primary-light: #202124;
+      --pure-black: #000000;
+      --text-muted: #9AA0A6;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --max-width: 1200px;
+    }
+
+    /* ==============================================
+       UTILITY CLASSES
+       ============================================== */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    /* ==============================================
+       BUTTONS
+       ============================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--text-on-primary);
+      box-shadow: 0 2px 8px rgba(66, 133, 244, 0.3);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background-color: var(--primary-hover);
+      box-shadow: 0 4px 16px rgba(66, 133, 244, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-outline:hover,
+    .btn-outline:focus-visible {
+      background-color: rgba(66, 133, 244, 0.1);
+    }
+
+    .btn svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .btn-large {
+      padding: 16px 36px;
+      font-size: 1.1rem;
+      border-radius: var(--radius-md);
+    }
+
+    /* ==============================================
+       HEADER / NAVIGATION
+       ============================================== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background-color: rgba(18, 18, 18, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background-color var(--transition);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      color: #FFFFFF;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: width var(--transition);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .header .btn {
+      padding: 10px 20px;
+      font-size: 0.875rem;
+    }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: #FFFFFF;
+    }
+
+    .menu-toggle svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* ==============================================
+       HERO SECTION
+       ============================================== */
+    .hero {
+      padding-top: 140px;
+      padding-bottom: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle radial glow behind hero */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(66, 133, 244, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 540px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background-color: rgba(66, 133, 244, 0.12);
+      border: 1px solid rgba(66, 133, 244, 0.2);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--secondary);
+      margin-bottom: 24px;
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--primary);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-size: clamp(2.25rem, 5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title .highlight {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 460px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .hero-stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Phone mockup placeholder */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-img {
+      width: 300px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 80px rgba(66, 133, 244, 0.1);
+      display: block;
+    }
+
+    /* ==============================================
+       FEATURES SECTION
+       ============================================== */
+    .features {
+      background-color: var(--background);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: all var(--transition);
+    }
+
+    .feature-card:hover {
+      border-color: rgba(66, 133, 244, 0.2);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(66, 133, 244, 0.1);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+
+    .feature-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #FFFFFF;
+    }
+
+    .feature-description {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==============================================
+       WHY SALAHMATE SECTION
+       ============================================== */
+    .why-section {
+      background-color: var(--surface);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .why-content .section-subtitle {
+      margin-bottom: 36px;
+    }
+
+    .why-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .why-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .why-item-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      background: rgba(66, 133, 244, 0.1);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+    }
+
+    .why-item-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .why-item-text h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .why-item-text p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .why-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .why-card-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .why-card {
+      background-color: var(--background);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all var(--transition);
+    }
+
+    .why-card:hover {
+      border-color: rgba(66, 133, 244, 0.2);
+    }
+
+    .why-card-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      background: rgba(66, 133, 244, 0.1);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .why-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .why-card-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* ==============================================
+       SCREENSHOTS SECTION
+       ============================================== */
+    .screenshots {
+      background-color: var(--background);
+    }
+
+    .screenshots-scroll {
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding-bottom: 16px;
+    }
+
+
+
+    .screenshot-item {
+      flex-shrink: 0;
+      width: 260px;
+      height: auto;
+      background: var(--surface);
+      border: 2px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      scroll-snap-align: center;
+      transition: all var(--transition);
+      position: relative;
+    }
+
+    .screenshot-item:hover {
+      border-color: rgba(66, 133, 244, 0.3);
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(66, 133, 244, 0.15);
+    }
+
+    .screenshot-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .screenshot-label {
+      text-align: center;
+      padding: 14px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--surface);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* ==============================================
+       TRUST SECTION
+       ============================================== */
+    .trust {
+      background-color: var(--surface);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .trust-card {
+      text-align: center;
+      padding: 40px 32px;
+      background: var(--background);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition);
+    }
+
+    .trust-card:hover {
+      border-color: rgba(66, 133, 244, 0.2);
+    }
+
+    .trust-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 20px;
+      background: rgba(66, 133, 244, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .trust-icon svg {
+      width: 28px;
+      height: 28px;
+      color: var(--primary);
+    }
+
+    .trust-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .trust-description {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==============================================
+       CTA SECTION
+       ============================================== */
+    .cta {
+      background-color: var(--background);
+      text-align: center;
+    }
+
+    .cta-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 72px 40px;
+      background: linear-gradient(135deg, rgba(66, 133, 244, 0.08) 0%, rgba(123, 170, 247, 0.04) 100%);
+      border: 1px solid rgba(66, 133, 244, 0.15);
+      border-radius: var(--radius-xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-inner::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(66, 133, 244, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-title {
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .cta-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    .cta .btn {
+      position: relative;
+    }
+
+    .cta-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: var(--radius-lg);
+      margin: 0 auto 24px;
+      box-shadow: 0 4px 20px rgba(66, 133, 244, 0.2);
+    }
+
+    /* ==============================================
+       FOOTER
+       ============================================== */
+    .footer {
+      background-color: var(--surface);
+      border-top: 1px solid var(--border-subtle);
+      padding: 48px 0 32px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-brand .logo-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .footer-brand-name {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .footer-link {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+
+    .footer-link:hover {
+      color: #FFFFFF;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ==============================================
+       SCROLL ANIMATIONS
+       ============================================== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger children */
+    .stagger-children .fade-up:nth-child(1) { transition-delay: 0.05s; }
+    .stagger-children .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .stagger-children .fade-up:nth-child(3) { transition-delay: 0.15s; }
+    .stagger-children .fade-up:nth-child(4) { transition-delay: 0.2s; }
+    .stagger-children .fade-up:nth-child(5) { transition-delay: 0.25s; }
+    .stagger-children .fade-up:nth-child(6) { transition-delay: 0.3s; }
+    .stagger-children .fade-up:nth-child(7) { transition-delay: 0.35s; }
+
+    /* ==============================================
+       RESPONSIVE STYLES
+       ============================================== */
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .hero-description {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-stats {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .hero-img {
+        width: 240px;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .why-content {
+        text-align: center;
+      }
+
+      .why-content .section-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .why-list {
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .section {
+        padding: 64px 0;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      /* Mobile nav overlay */
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--background);
+        padding: 24px;
+        gap: 16px;
+        z-index: 999;
+        animation: fadeIn 0.2s ease;
+      }
+
+      .nav-links.open .nav-link {
+        font-size: 1.1rem;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      .hero {
+        padding-top: 100px;
+        padding-bottom: 64px;
+      }
+
+      .hero-title {
+        font-size: clamp(1.75rem, 7vw, 2.5rem);
+      }
+
+      .hero-stats {
+        gap: 24px;
+      }
+
+      .hero-stat-value {
+        font-size: 1.25rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .screenshot-item {
+        width: 220px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .cta-inner {
+        padding: 48px 24px;
+      }
+
+      .hero-img {
+        width: 200px;
+      }
+    }
+
+    /* Focus visible for accessibility */
+    :focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .fade-up {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ============================================
+       HEADER
+       ============================================ -->
+  <header class="header" role="banner">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="SalahMate — Home">
+        <span class="logo-icon"><img src="images/salahMate.png" alt="SalahMate icon" width="36" height="36" /></span>
+        <span>SalahMate</span>
+      </a>
+
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#why" class="nav-link">Why SalahMate</a></li>
+          <li><a href="#screenshots" class="nav-link">Screenshots</a></li>
+          <li><a href="#trust" class="nav-link">Trust</a></li>
+        </ul>
+
+        <a href="https://play.google.com/store/apps/details?id=com.GroveReaper.salahmate.salahmate&hl=en"
+           class="btn btn-primary"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Download SalahMate on Google Play">
+          <!-- Google Play icon -->
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.2 12l2.498-2.492zM5.864 3.658L16.8 9.99l-2.302 2.302-8.634-8.634z"/>
+          </svg>
+          Download
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero" id="hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge fade-up">
+            <span class="hero-badge-dot" aria-hidden="true"></span>
+            Available on Android
+          </div>
+
+          <h1 class="hero-title fade-up">
+            Your Companion for<br/>
+            <span class="highlight">Salah &amp; Quran</span>
+          </h1>
+
+          <p class="hero-description fade-up">
+            A beautifully simple Islamic app with Quran recitations, Tafsir, accurate prayer times, Qibla direction, and daily Adhkar — designed for focus and khushu'.
+          </p>
+
+          <div class="hero-actions fade-up">
+            <a href="https://play.google.com/store/apps/details?id=com.GroveReaper.salahmate.salahmate&hl=en"
+               class="btn btn-primary btn-large"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Download SalahMate on Google Play">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.2 12l2.498-2.492zM5.864 3.658L16.8 9.99l-2.302 2.302-8.634-8.634z"/>
+              </svg>
+              Download on Google Play
+            </a>
+          </div>
+
+          <div class="hero-stats fade-up">
+            <div>
+              <div class="hero-stat-value">7+</div>
+              <div class="hero-stat-label">Core Features</div>
+            </div>
+            <div>
+              <div class="hero-stat-value">100%</div>
+              <div class="hero-stat-label">Free to Use</div>
+            </div>
+            <div>
+              <div class="hero-stat-value">Offline</div>
+              <div class="hero-stat-label">Ready</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual fade-up">
+          <img src="images/1_home.webp"
+               alt="SalahMate home screen showing prayer times and quick access features"
+               class="hero-img"
+               loading="eager"
+               width="300" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         FEATURES SECTION
+         ============================================ -->
+    <section class="features section" id="features">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">Features</span>
+          <h2 class="section-title">Everything You Need,<br/>Nothing You Don't</h2>
+          <p class="section-subtitle">
+            SalahMate brings together the essential tools every Muslim needs — thoughtfully designed, distraction-free, and ready when you are.
+          </p>
+        </div>
+
+        <div class="features-grid stagger-children">
+          <!-- Feature 1: Quran -->
+          <div class="feature-card fade-up">
+            <div class="feature-icon" aria-hidden="true">📖</div>
+            <h3 class="feature-title">Quran with Recitations</h3>
+            <p class="feature-description">
+              Read the Holy Quran with multiple recitations and ayah-by-ayah audio playback for a deeply immersive experience.
+            </p>
+          </div>
+
+          <!-- Feature 2: Tafsir -->
+          <div class="feature-card fade-up">
+            <div class="feature-icon" aria-hidden="true">📜</div>
+            <h3 class="feature-title">Tafsir &amp; Asbab al-Nuzul</h3>
+            <p class="feature-description">
+              Understand the meaning behind every verse with detailed Tafsir and the reasons of revelation.
+            </p>
+          </div>
+
+          <!-- Feature 3: Prayer Times -->
+          <div class="feature-card fade-up">
+            <div class="feature-icon" aria-hidden="true">🕌</div>
+            <h3 class="feature-title">Accurate Prayer Times</h3>
+            <p class="feature-description">
+              Get precise prayer time calculations based on your location, so you never miss a Salah.
+            </p>
+          </div>
+
+          <!-- Feature 4: Qibla -->
+          <div class="feature-card fade-up">
+            <div class="feature-icon" aria-hidden="true">🧭</div>
+            <h3 class="feature-title">Qibla Finder</h3>
+            <p class="feature-description">
+              Find the exact direction of the Qibla wherever you are with a smooth, reliable compass.
+            </p>
+          </div>
+
+          <!-- Feature 5: Adhkar -->
+          <div class="feature-card fade-up">
+            <div class="feature-icon" aria-hidden="true">🤲</div>
+            <h3 class="feature-title">Daily Adhkar</h3>
+            <p class="feature-description">
+              Morning and evening remembrances at your fingertips — build a consistent daily habit of dhikr.
+            </p>
+          </div>
+
+          <!-- Feature 6: Offline -->
+          <div class="feature-card fade-up">
+            <div class="feature-icon" aria-hidden="true">📡</div>
+            <h3 class="feature-title">Offline Support</h3>
+            <p class="feature-description">
+              Access core features without an internet connection — perfect for travel, the masjid, or anywhere.
+            </p>
+          </div>
+
+          <!-- Feature 7: Clean Interface -->
+          <div class="feature-card fade-up">
+            <div class="feature-icon" aria-hidden="true">✨</div>
+            <h3 class="feature-title">Clean Interface</h3>
+            <p class="feature-description">
+              A minimal, distraction-free design that helps you focus on what matters — your ibadah.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         WHY SALAHMATE SECTION
+         ============================================ -->
+    <section class="why-section section" id="why">
+      <div class="container">
+        <div class="why-grid">
+          <div class="why-content">
+            <span class="section-label fade-up">Why SalahMate</span>
+            <h2 class="section-title fade-up">Built Different.<br/>Built with Care.</h2>
+            <p class="section-subtitle fade-up">
+              SalahMate isn't just another Islamic app. It's thoughtfully crafted to give you 
+              exactly what you need — without the clutter, without the noise.
+            </p>
+
+            <div class="why-list">
+              <div class="why-item fade-up">
+                <div class="why-item-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </div>
+                <div class="why-item-text">
+                  <h4>Lightweight &amp; Fast</h4>
+                  <p>No bloat, no lag. SalahMate launches quickly and runs smoothly on any device.</p>
+                </div>
+              </div>
+
+              <div class="why-item fade-up">
+                <div class="why-item-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M8 12l2 2 4-4"/>
+                  </svg>
+                </div>
+                <div class="why-item-text">
+                  <h4>No Unnecessary Clutter</h4>
+                  <p>Every screen serves a purpose. We removed the distractions so you can focus on ibadah.</p>
+                </div>
+              </div>
+
+              <div class="why-item fade-up">
+                <div class="why-item-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                  </svg>
+                </div>
+                <div class="why-item-text">
+                  <h4>Built with Care</h4>
+                  <p>Designed with Islamic principles in mind — respectful, accurate, and made with sincerity.</p>
+                </div>
+              </div>
+
+              <div class="why-item fade-up">
+                <div class="why-item-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                </div>
+                <div class="why-item-text">
+                  <h4>Designed for Khushu'</h4>
+                  <p>A calm, focused environment that helps you connect deeply with your prayers and recitation.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="why-visual fade-up">
+            <div class="why-card-stack">
+              <div class="why-card">
+                <div class="why-card-icon" aria-hidden="true">⚡</div>
+                <div>
+                  <div class="why-card-title">Instant Launch</div>
+                  <div class="why-card-desc">Opens in under a second</div>
+                </div>
+              </div>
+              <div class="why-card">
+                <div class="why-card-icon" aria-hidden="true">🎯</div>
+                <div>
+                  <div class="why-card-title">Purpose-Driven</div>
+                  <div class="why-card-desc">Every feature serves your deen</div>
+                </div>
+              </div>
+              <div class="why-card">
+                <div class="why-card-icon" aria-hidden="true">🔒</div>
+                <div>
+                  <div class="why-card-title">Privacy First</div>
+                  <div class="why-card-desc">Your data stays yours</div>
+                </div>
+              </div>
+              <div class="why-card">
+                <div class="why-card-icon" aria-hidden="true">💎</div>
+                <div>
+                  <div class="why-card-title">Completely Free</div>
+                  <div class="why-card-desc">No premium walls, no hidden fees</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SCREENSHOTS SECTION
+         ============================================ -->
+    <section class="screenshots section" id="screenshots">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">Screenshots</span>
+          <h2 class="section-title">See SalahMate in Action</h2>
+          <p class="section-subtitle">
+            A clean, focused design that puts your ibadah front and center.
+          </p>
+        </div>
+
+        <div class="screenshots-scroll stagger-children">
+          <div class="screenshot-item fade-up">
+            <img src="images/1_home.webp" alt="SalahMate home screen" loading="lazy" width="260" />
+            <div class="screenshot-label">Home</div>
+          </div>
+          <div class="screenshot-item fade-up">
+            <img src="images/2_quran_page.webp" alt="SalahMate Quran surah list" loading="lazy" width="260" />
+            <div class="screenshot-label">Quran</div>
+          </div>
+          <div class="screenshot-item fade-up">
+            <img src="images/3_quran_viewer.webp" alt="SalahMate Quran reader view" loading="lazy" width="260" />
+            <div class="screenshot-label">Quran Reader</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         TRUST SECTION
+         ============================================ -->
+    <section class="trust section" id="trust">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">Trust &amp; Privacy</span>
+          <h2 class="section-title">Your Privacy Matters</h2>
+          <p class="section-subtitle">
+            SalahMate is built with integrity — respecting your data, your time, and your worship.
+          </p>
+        </div>
+
+        <div class="trust-grid stagger-children">
+          <div class="trust-card fade-up">
+            <div class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="trust-title">Privacy-Focused</h3>
+            <p class="trust-description">
+              We respect your privacy. SalahMate does not track, sell, or misuse your personal data in any way.
+            </p>
+          </div>
+
+          <div class="trust-card fade-up">
+            <div class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+            </div>
+            <h3 class="trust-title">Minimal Data Collection</h3>
+            <p class="trust-description">
+              Only location data is used — solely for prayer times and Qibla direction. Nothing extra, nothing hidden.
+            </p>
+          </div>
+
+          <div class="trust-card fade-up">
+            <div class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M8 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 class="trust-title">Reliable Calculations</h3>
+            <p class="trust-description">
+              Prayer times are calculated with trusted, well-known algorithms to ensure accuracy you can depend on.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         CTA SECTION
+         ============================================ -->
+    <section class="cta section" id="download">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <img src="images/salahMate.png" alt="SalahMate" class="cta-icon" width="72" height="72" />
+          <h2 class="cta-title">Strengthen Your Connection<br/>with Salah Today</h2>
+          <p class="cta-subtitle">
+            Join thousands of Muslims who use SalahMate for a more focused, meaningful worship experience.
+          </p>
+          <a href="https://play.google.com/store/apps/details?id=com.GroveReaper.salahmate.salahmate&hl=en"
+             class="btn btn-primary btn-large"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Download SalahMate on Google Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.2 12l2.498-2.492zM5.864 3.658L16.8 9.99l-2.302 2.302-8.634-8.634z"/>
+            </svg>
+            Download on Google Play
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-icon"><img src="images/salahMate.png" alt="SalahMate icon" width="32" height="32" /></span>
+          <span class="footer-brand-name">SalahMate</span>
+        </div>
+
+        <div class="footer-links">
+          <a href="mailto:jhmobileapps.dev@gmail.com" class="footer-link">Contact</a>
+          <a href="https://jesser.me//SalahMate_privacy_policy/Privacy%20Policy%20for%20SalahMate.html"
+             class="footer-link"
+             target="_blank"
+             rel="noopener noreferrer">Privacy Policy</a>
+          <a href="https://play.google.com/store/apps/details?id=com.GroveReaper.salahmate.salahmate&hl=en"
+             class="footer-link"
+             target="_blank"
+             rel="noopener noreferrer">Google Play</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 SalahMate. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       JAVASCRIPT — Minimal, no dependencies
+       ============================================ -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ----------------------------------------
+         Mobile Menu Toggle
+         ---------------------------------------- */
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function () {
+          const isOpen = navLinks.classList.toggle('open');
+          menuToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close mobile menu when a nav link is clicked
+        navLinks.querySelectorAll('.nav-link').forEach(function (link) {
+          link.addEventListener('click', function () {
+            navLinks.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      /* ----------------------------------------
+         Scroll-triggered Fade-in Animations
+         Uses IntersectionObserver for performance
+         ---------------------------------------- */
+      var fadeElements = document.querySelectorAll('.fade-up');
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px',
+          }
+        );
+
+        fadeElements.forEach(function (el) {
+          observer.observe(el);
+        });
+      } else {
+        // Fallback: show all elements immediately
+        fadeElements.forEach(function (el) {
+          el.classList.add('visible');
+        });
+      }
+
+      /* ----------------------------------------
+         Sticky Header — subtle background on scroll
+         ---------------------------------------- */
+      var header = document.querySelector('.header');
+      var scrollThreshold = 10;
+
+      window.addEventListener(
+        'scroll',
+        function () {
+          if (window.scrollY > scrollThreshold) {
+            header.style.backgroundColor = 'rgba(18, 18, 18, 0.95)';
+          } else {
+            header.style.backgroundColor = 'rgba(18, 18, 18, 0.85)';
+          }
+        },
+        { passive: true }
+      );
+    })();
+  </script>
+</body>
+</html>
