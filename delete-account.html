@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete your account — SalahMate</title>
+  <meta name="description" content="How to delete your SalahMate account and data, what is deleted, and what is kept." />
+  <meta name="theme-color" content="#121212" />
+  <link rel="icon" href="images/salahMate.png" type="image/png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Same palette and tokens as app_page.html, so the two read as one site. */
+    :root {
+      --primary: #4285F4;
+      --primary-hover: #1A73E8;
+      --secondary: #7BAAF7;
+      --surface: #202124;
+      --background: #121212;
+      --text-muted: #9AA0A6;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--background);
+      color: #FFFFFF;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    html[lang="ar"] body { font-family: 'Noto Sans Arabic', 'Inter', Tahoma, sans-serif; }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .container { width: 100%; max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header — as on the app page */
+    .header {
+      position: sticky; top: 0; z-index: 10;
+      background-color: rgba(18, 18, 18, 0.9);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 1.15rem; font-weight: 700; }
+    .logo-icon { width: 32px; height: 32px; border-radius: var(--radius-sm); overflow: hidden; flex-shrink: 0; }
+    .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+    .lang { display: flex; gap: 6px; }
+    .lang button {
+      font: inherit; font-size: 0.8rem; font-weight: 600;
+      color: var(--text-muted); background: transparent;
+      border: 1px solid var(--border-subtle); border-radius: 100px;
+      padding: 6px 12px; cursor: pointer; transition: all var(--transition);
+    }
+    .lang button:hover { color: #FFFFFF; }
+    .lang button[aria-pressed="true"] { color: var(--secondary); border-color: rgba(66, 133, 244, 0.4); background: rgba(66, 133, 244, 0.12); }
+
+    /* Hero */
+    .hero { position: relative; padding: 56px 0 32px; overflow: hidden; }
+    .hero::before {
+      content: ''; position: absolute; top: -260px; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 700px; pointer-events: none;
+      background: radial-gradient(circle, rgba(66, 133, 244, 0.09) 0%, transparent 70%);
+    }
+    .section-label {
+      display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--primary); margin-bottom: 12px;
+    }
+    html[lang="ar"] .section-label { letter-spacing: 0; }
+    h1 { font-size: clamp(1.75rem, 5vw, 2.4rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 14px; position: relative; }
+    .lead { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; max-width: 600px; position: relative; }
+
+    /* Cards */
+    .card {
+      background-color: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+    .card-head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .card-icon {
+      width: 44px; height: 44px; min-width: 44px;
+      background: rgba(66, 133, 244, 0.1); color: var(--primary);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .card-icon svg { width: 22px; height: 22px; }
+    h2 { font-size: 1.15rem; font-weight: 600; }
+    .card p { color: var(--text-muted); font-size: 0.95rem; }
+    .card p + p { margin-top: 10px; }
+    .card strong { color: #FFFFFF; font-weight: 600; }
+
+    ol.steps { list-style: none; counter-reset: step; display: flex; flex-direction: column; gap: 12px; }
+    ol.steps li { counter-increment: step; display: flex; gap: 12px; align-items: flex-start; color: var(--text-muted); }
+    ol.steps li::before {
+      content: counter(step);
+      width: 26px; height: 26px; min-width: 26px; border-radius: 50%;
+      background: var(--primary); color: #FFFFFF;
+      font-size: 0.8rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; margin-top: 1px;
+    }
+
+    ul.list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    ul.list li { position: relative; padding-inline-start: 22px; color: var(--text-muted); font-size: 0.95rem; }
+    ul.list li::before {
+      content: ''; position: absolute; inset-inline-start: 4px; top: 0.6em;
+      width: 6px; height: 6px; border-radius: 50%; background: var(--primary);
+    }
+
+    .note {
+      margin-top: 18px; padding: 14px 16px;
+      background: rgba(66, 133, 244, 0.08);
+      border: 1px solid rgba(66, 133, 244, 0.2);
+      border-radius: var(--radius-md);
+      color: #E8EAED; font-size: 0.9rem;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-top: 18px; padding: 12px 22px;
+      background-color: var(--primary); color: #FFFFFF;
+      font: inherit; font-weight: 600; font-size: 0.95rem;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 2px 8px rgba(66, 133, 244, 0.3);
+      transition: all var(--transition);
+    }
+    .btn:hover, .btn:focus-visible { background-color: var(--primary-hover); box-shadow: 0 4px 16px rgba(66, 133, 244, 0.45); }
+    .btn svg { width: 18px; height: 18px; }
+    .mail { color: var(--secondary); font-weight: 600; word-break: break-all; }
+
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid .card { margin-bottom: 0; }
+
+    /* Footer — as on the app page */
+    .footer { margin-top: 56px; background-color: var(--surface); border-top: 1px solid var(--border-subtle); padding: 32px 0 24px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-link { font-size: 0.875rem; color: var(--text-muted); transition: color var(--transition); }
+    .footer-link:hover { color: #FFFFFF; }
+    .footer-bottom { text-align: center; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-subtle); font-size: 0.8rem; color: var(--text-muted); }
+
+    :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+    [data-lang] { display: none; }
+    html[lang="en"] [data-lang="en"], html[lang="fr"] [data-lang="fr"], html[lang="ar"] [data-lang="ar"] { display: block; }
+
+    @media (max-width: 640px) {
+      .container { padding: 0 16px; }
+      .grid { grid-template-columns: 1fr; }
+      .card { padding: 22px 18px; }
+      .hero { padding-top: 40px; }
+      .logo span:last-child { display: none; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="app_page.html" class="logo" aria-label="SalahMate">
+        <span class="logo-icon"><img src="images/salahMate.png" alt="" width="32" height="32" /></span>
+        <span>SalahMate</span>
+      </a>
+      <nav class="lang" aria-label="Language">
+        <button type="button" data-set="en">EN</button>
+        <button type="button" data-set="fr">FR</button>
+        <button type="button" data-set="ar">عربي</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- ═════════════ English ═════════════ -->
+    <div data-lang="en">
+      <section class="hero">
+        <span class="section-label">Account &amp; data</span>
+        <h1>Delete your SalahMate account</h1>
+        <p class="lead">You can delete your account and its data at any time — from the app, or by email if you no longer have the app installed.</p>
+      </section>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+          <h2>Option 1 — In the app</h2>
+        </div>
+        <ol class="steps">
+          <li><span>Open SalahMate and go to the <strong>Account</strong> tab.</span></li>
+          <li><span>Tap <strong>Manage Account</strong>.</span></li>
+          <li><span>Tap <strong>Delete account</strong> and confirm.</span></li>
+        </ol>
+        <div class="note">Everything stored on your phone is erased immediately. Your account on our servers is permanently deleted after <strong>30 days</strong>. Signing in again during those 30 days cancels the deletion and restores your account.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></div>
+          <h2>Option 2 — By email, without the app</h2>
+        </div>
+        <p>Email <a class="mail" href="mailto:jhmobileapps.dev@gmail.com?subject=SalahMate%20account%20deletion">jhmobileapps.dev@gmail.com</a> with the subject <strong>“SalahMate account deletion”</strong>, <strong>from the email address of the Google account you signed in with</strong>. That address is how we confirm the account is yours, so a request from a different address cannot be processed.</p>
+        <p>We confirm and schedule the deletion within 7 days. The same 30-day period then applies.</p>
+        <a class="btn" href="mailto:jhmobileapps.dev@gmail.com?subject=SalahMate%20account%20deletion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>Request deletion by email</a>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h2 style="margin-bottom:14px">What is deleted</h2>
+          <ul class="list">
+            <li>Your account and sign-in identity</li>
+            <li>Your profile (name, avatar)</li>
+            <li>Prayer and fasting history, streaks and statistics</li>
+            <li>Quran reading and Khitma progress synced to your account</li>
+            <li>Coins and their history, badges, achievements, chests and unlocked items</li>
+            <li>Your notification settings</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2 style="margin-bottom:14px">What is kept</h2>
+          <ul class="list">
+            <li>Nothing is kept by SalahMate once the 30 days have passed.</li>
+            <li>Purchase records are held by <strong>Google Play</strong>, not by us, under Google's own policies. Coins and items bought with an account are deleted with it and cannot be restored.</li>
+            <li>Prayer times, the Quran and adhkar work without an account, and keep working after deletion.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═════════════ Français ═════════════ -->
+    <div data-lang="fr">
+      <section class="hero">
+        <span class="section-label">Compte et données</span>
+        <h1>Supprimer votre compte SalahMate</h1>
+        <p class="lead">Vous pouvez supprimer votre compte et ses données à tout moment — depuis l'application, ou par e-mail si elle n'est plus installée.</p>
+      </section>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+          <h2>Option 1 — Dans l'application</h2>
+        </div>
+        <ol class="steps">
+          <li><span>Ouvrez SalahMate et allez dans l'onglet <strong>Compte</strong>.</span></li>
+          <li><span>Touchez <strong>Gérer le compte</strong>.</span></li>
+          <li><span>Touchez <strong>Supprimer le compte</strong> et confirmez.</span></li>
+        </ol>
+        <div class="note">Tout ce qui est enregistré sur votre téléphone est effacé immédiatement. Votre compte sur nos serveurs est supprimé définitivement après <strong>30 jours</strong>. Vous reconnecter pendant ces 30 jours annule la suppression et restaure votre compte.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></div>
+          <h2>Option 2 — Par e-mail, sans l'application</h2>
+        </div>
+        <p>Écrivez à <a class="mail" href="mailto:jhmobileapps.dev@gmail.com?subject=SalahMate%20account%20deletion">jhmobileapps.dev@gmail.com</a> avec l'objet <strong>« SalahMate account deletion »</strong>, <strong>depuis l'adresse du compte Google utilisé pour vous connecter</strong>. Cette adresse nous permet de vérifier que le compte vous appartient ; une demande envoyée depuis une autre adresse ne peut pas être traitée.</p>
+        <p>Nous confirmons et programmons la suppression sous 7 jours. Le même délai de 30 jours s'applique ensuite.</p>
+        <a class="btn" href="mailto:jhmobileapps.dev@gmail.com?subject=SalahMate%20account%20deletion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>Demander la suppression par e-mail</a>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h2 style="margin-bottom:14px">Ce qui est supprimé</h2>
+          <ul class="list">
+            <li>Votre compte et votre identité de connexion</li>
+            <li>Votre profil (nom, avatar)</li>
+            <li>L'historique des prières et du jeûne, les séries et les statistiques</li>
+            <li>La progression de lecture du Coran et de Khatma synchronisée avec votre compte</li>
+            <li>Les pièces et leur historique, les badges, les succès, les coffres et les éléments débloqués</li>
+            <li>Vos réglages de notifications</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2 style="margin-bottom:14px">Ce qui est conservé</h2>
+          <ul class="list">
+            <li>SalahMate ne conserve rien une fois les 30 jours écoulés.</li>
+            <li>Les preuves d'achat sont conservées par <strong>Google Play</strong>, et non par nous, selon ses propres règles. Les pièces et éléments achetés avec un compte sont supprimés avec lui et ne peuvent pas être restaurés.</li>
+            <li>Les horaires de prière, le Coran et les adhkar fonctionnent sans compte, et continuent après la suppression.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═════════════ العربية ═════════════ -->
+    <div data-lang="ar">
+      <section class="hero">
+        <span class="section-label">الحساب والبيانات</span>
+        <h1>حذف حسابك في SalahMate</h1>
+        <p class="lead">يمكنك حذف حسابك وبياناته في أي وقت — من داخل التطبيق، أو عبر البريد الإلكتروني إن لم يعد التطبيق مثبّتًا لديك.</p>
+      </section>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+          <h2>الطريقة الأولى — من داخل التطبيق</h2>
+        </div>
+        <ol class="steps">
+          <li><span>افتح SalahMate وانتقل إلى تبويب <strong>الحساب</strong>.</span></li>
+          <li><span>اضغط <strong>إدارة الحساب</strong>.</span></li>
+          <li><span>اضغط <strong>حذف الحساب</strong> ثم أكّد.</span></li>
+        </ol>
+        <div class="note">يُمسح كل ما هو محفوظ على هاتفك فورًا، ويُحذف حسابك على خوادمنا نهائيًا بعد <strong>30 يومًا</strong>. تسجيل الدخول مجددًا خلال هذه المدة يلغي الحذف ويستعيد حسابك.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></div>
+          <h2>الطريقة الثانية — عبر البريد الإلكتروني دون التطبيق</h2>
+        </div>
+        <p>راسلنا على <a class="mail" dir="ltr" href="mailto:jhmobileapps.dev@gmail.com?subject=SalahMate%20account%20deletion">jhmobileapps.dev@gmail.com</a> بعنوان <strong>«SalahMate account deletion»</strong>، <strong>من عنوان بريد حساب Google الذي سجّلت الدخول به</strong>. نستخدم هذا العنوان للتحقق من أن الحساب ملكك، ولا يمكن معالجة طلب مُرسل من عنوان آخر.</p>
+        <p>نؤكد الطلب ونجدول الحذف خلال 7 أيام، ثم تنطبق مدة الثلاثين يومًا نفسها.</p>
+        <a class="btn" href="mailto:jhmobileapps.dev@gmail.com?subject=SalahMate%20account%20deletion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>طلب الحذف عبر البريد</a>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h2 style="margin-bottom:14px">ما الذي يُحذف</h2>
+          <ul class="list">
+            <li>حسابك وهوية تسجيل الدخول</li>
+            <li>ملفك الشخصي (الاسم والصورة الرمزية)</li>
+            <li>سجل الصلاة والصيام والسلاسل والإحصاءات</li>
+            <li>تقدّم قراءة القرآن والختمة المتزامن مع حسابك</li>
+            <li>العملات وسجلها والشارات والإنجازات والصناديق والعناصر المفتوحة</li>
+            <li>إعدادات الإشعارات</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2 style="margin-bottom:14px">ما الذي يُحتفظ به</h2>
+          <ul class="list">
+            <li>لا يحتفظ SalahMate بأي شيء بعد انقضاء الثلاثين يومًا.</li>
+            <li>سجلات الشراء تحتفظ بها <strong>Google Play</strong> وليس نحن، وفق سياساتها. العملات والعناصر المشتراة بحساب تُحذف معه ولا يمكن استعادتها.</li>
+            <li>مواقيت الصلاة والقرآن والأذكار تعمل دون حساب، وتستمر بعد الحذف.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="app_page.html" class="logo">
+          <span class="logo-icon"><img src="images/salahMate.png" alt="" width="32" height="32" /></span>
+          <span>SalahMate</span>
+        </a>
+        <div class="footer-links">
+          <a href="mailto:jhmobileapps.dev@gmail.com" class="footer-link">Contact</a>
+          <a href="https://jesser.me/SalahMate_privacy_policy/Privacy%20Policy%20for%20SalahMate.html" class="footer-link">Privacy Policy</a>
+          <a href="https://play.google.com/store/apps/details?id=com.GroveReaper.salahmate.salahmate&hl=en" class="footer-link" target="_blank" rel="noopener noreferrer">Google Play</a>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 SalahMate</div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      var supported = ['en', 'fr', 'ar'];
+
+      function apply(lang) {
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        document.querySelectorAll('.lang button').forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.dataset.set === lang));
+        });
+        try { localStorage.setItem('salahmate_lang', lang); } catch (e) {}
+      }
+
+      var chosen = new URLSearchParams(location.search).get('lang');
+      if (supported.indexOf(chosen) === -1) { try { chosen = localStorage.getItem('salahmate_lang'); } catch (e) { chosen = null; } }
+      if (supported.indexOf(chosen) === -1) {
+        var nav = (navigator.language || 'en').slice(0, 2).toLowerCase();
+        chosen = supported.indexOf(nav) !== -1 ? nav : 'en';
+      }
+      apply(chosen);
+
+      document.querySelectorAll('.lang button').forEach(function (b) {
+        b.addEventListener('click', function () { apply(b.dataset.set); });
+      });
+    })();
+  </script>
+</body>
+</html>
